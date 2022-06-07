@@ -67,33 +67,31 @@ public class CoderEncoder {
     }
 
     public static int key() {
-        int exitFlag = 0;
         Scanner scanner = new Scanner(System.in);
-        int key = 0;
-        System.out.println("ключ может иметь значение от 1го до 42х");
-        while ( exitFlag == 0) {
+        int key ;
+        System.out.printf("ключ может иметь значение от 1го до %d\n",ALPHABETSIZE - 1);
+        while (true) {
             System.out.print("введите ключ шифрования: ");
             try {
                 key = scanner.nextInt();
-                if (key < 1 && key > 42) {
-                    System.out.printf("ключ может иметь значение от 1го до 42х, Вы ввели %d", key);
+                if (key < 1 | key > (ALPHABETSIZE - 1) ) {
+                    System.out.printf("ключ может иметь значение от 1го до %2$d, Вы ввели %1$d\n", key, ALPHABETSIZE - 1);
                     continue;
                 }
                 return key;
             } catch (InputMismatchException e) {
                 scanner.next();
-                System.out.println("ключ может иметь значение от 1го до 42х");
+                System.out.printf("ключ может иметь значение от 1го до %d\n",ALPHABETSIZE - 1);
             }
         }
-        return key;
     }
 
     public static Path inputFile(int action) {
-        int exitFlag = 0;
+
         Path inputFilePath = null;
         Scanner scanner = new Scanner(System.in);
         String message = action == 1? "введите файл, который надо зашифровать: " : "введите файл, который надо расшифровать: ";
-        while (exitFlag == 0) {
+        while (true) {
             try {
                 System.out.print(message);
                 String stringPath = scanner.nextLine();
@@ -115,16 +113,14 @@ public class CoderEncoder {
                 e.printStackTrace();
             }
         }
-        return inputFilePath;
     }
 
 
     public static Path outputFile() {
-        int exitFlag = 0;
         Path outputFilePath = null;
         Scanner scanner = new Scanner(System.in);
         System.out.print("введите файл, куда будет записан результат: ");
-        while (exitFlag == 0) {
+        while (true) {
             try {
                 String stringPath = scanner.nextLine();
                 if (stringPath.isEmpty()) {
@@ -145,8 +141,6 @@ public class CoderEncoder {
                 e.printStackTrace();
             }
         }
-        return outputFilePath;
-
     }
 
 
