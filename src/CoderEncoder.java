@@ -88,7 +88,7 @@ public class CoderEncoder {
 
     public static Path inputFile(int action) {
 
-        Path inputFilePath = null;
+        Path inputFilePath ;
         Scanner scanner = new Scanner(System.in);
         String message = action == 1? "введите файл, который надо зашифровать: " : "введите файл, который надо расшифровать: ";
         while (true) {
@@ -117,7 +117,7 @@ public class CoderEncoder {
 
 
     public static Path outputFile() {
-        Path outputFilePath = null;
+        Path outputFilePath ;
         Scanner scanner = new Scanner(System.in);
         System.out.print("введите файл, куда будет записан результат: ");
         while (true) {
