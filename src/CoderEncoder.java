@@ -26,6 +26,7 @@ public class CoderEncoder {
         int choice = 0;
 
         while (choice != 5) {
+
             System.out.println("Возможные действия:\n" +
                     "1. Шифровка текста\n" +
                     "2. Расшифровка текста с помощью ключа\n" +
@@ -33,6 +34,7 @@ public class CoderEncoder {
                     "4. Расшифровка с помощью статистического анализа текста\n" +
                     "5. Выход");
             System.out.print("выберите номер дальнейшего действия: ");
+
             try {
                 choice = scanner.nextInt();
                 switch (choice) {
@@ -41,10 +43,10 @@ public class CoderEncoder {
                         System.out.println(encode(key(), inputFile(choice), outputFile()));
                         break;
                     case 2:
-                        System.out.println(decodeByKey(key(),inputFile(choice),outputFile()));
+                        System.out.println(decodeByKey(key(), inputFile(choice), outputFile()));
                         break;
                     case 3:
-                        System.out.println(decodeByBruteForce(inputFile(choice),outputFile()));
+                        System.out.println(decodeByBruteForce(inputFile(choice), outputFile()));
                         break;
                     case 4:
                         System.out.println("это еще не готово, выбери другое");
@@ -60,37 +62,36 @@ public class CoderEncoder {
             } catch (InputMismatchException e) {
                 scanner.next();
                 System.out.println("такого варианта нет, возможные варианты от 1го до 5ти");
-
             }
-        }
 
+        }
     }
 
     public static int key() {
         Scanner scanner = new Scanner(System.in);
-        int key ;
-        System.out.printf("ключ может иметь значение от 1го до %d\n",ALPHABETSIZE - 1);
+        int key;
+        System.out.printf("ключ может иметь значение от 1го до %d\n", ALPHABETSIZE - 1);
         while (true) {
             System.out.print("введите ключ шифрования: ");
             try {
                 key = scanner.nextInt();
-                if (key < 1 | key > (ALPHABETSIZE - 1) ) {
+                if (key < 1 | key > (ALPHABETSIZE - 1)) {
                     System.out.printf("ключ может иметь значение от 1го до %2$d, Вы ввели %1$d\n", key, ALPHABETSIZE - 1);
                     continue;
                 }
                 return key;
             } catch (InputMismatchException e) {
                 scanner.next();
-                System.out.printf("ключ может иметь значение от 1го до %d\n",ALPHABETSIZE - 1);
+                System.out.printf("ключ может иметь значение от 1го до %d\n", ALPHABETSIZE - 1);
             }
         }
     }
 
     public static Path inputFile(int action) {
 
-        Path inputFilePath ;
+        Path inputFilePath;
         Scanner scanner = new Scanner(System.in);
-        String message = action == 1? "введите файл, который надо зашифровать: " : "введите файл, который надо расшифровать: ";
+        String message = action == 1 ? "введите файл, который надо зашифровать: " : "введите файл, который надо расшифровать: ";
         while (true) {
             try {
                 System.out.print(message);
@@ -117,7 +118,7 @@ public class CoderEncoder {
 
 
     public static Path outputFile() {
-        Path outputFilePath ;
+        Path outputFilePath;
         Scanner scanner = new Scanner(System.in);
         System.out.print("введите файл, куда будет записан результат: ");
         while (true) {
