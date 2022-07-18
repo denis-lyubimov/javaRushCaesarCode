@@ -7,8 +7,7 @@ import java.util.List;
 public class CaesarCoder extends CaesarConverter implements Codable {
 
 
-    public CaesarCoder() {
-    }
+
 
 //    public CaesarCoder(byte key, Path inputFile, Path outputFile, List<Character> alphabet) {
 //        super(inputFile, outputFile);
