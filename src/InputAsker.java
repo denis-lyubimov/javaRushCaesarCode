@@ -17,7 +17,6 @@ public class InputAsker {
             } catch (InputMismatchException e){
                 System.out.println("введен неверный ключ, ошибка "+ e);
                 System.out.printf("ключ должен быть больше нуля и не больше %d(количество символов в алфавите)\n",alphabetSize);
-                continue;
             }
         }
         return key;

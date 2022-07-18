@@ -1,5 +1,4 @@
 import java.nio.file.Path;
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -76,7 +75,8 @@ public class Runner {
 
                         System.out.printf(RESULT_MESSAGE, outputFile.toString());
                     }
-                    case 4 -> {
+                    case 4 -> System.out.println("not implementeted yet");
+//                            {
 //                        System.out.println("выбран 4й вариант");
 //                        System.out.println("для расшиврофки требуется");
 //                        InputAsker asker = new InputAsker();
@@ -92,16 +92,13 @@ public class Runner {
 //                        decoder.decode(textExampleFile, inputFile, outputFile);
 //
 //                        System.out.printf(RESULT_MESSAGE, outputFile.toString());
-                        continue;
-                    }
+//                    }
                     case 5 -> {
                         System.out.println("выбран 5й вариант");
                         System.out.println("выходим из программы");
                         System.exit(0);
                     }
-                    default -> {
-                        System.out.println("такого варианта нет, возможные варианты от 1го до 5ти");
-                    }
+                    default -> System.out.println("такого варианта нет, возможные варианты от 1го до 5ти");
                 }
             } catch (InputMismatchException e) {
                 scanner.next();
